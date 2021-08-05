@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-web-app
+  labels:
+    app: demo-web-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-web-app
+  template:
+    metadata:
+      labels:
+        app: demo-web-app
+    spec:
+      containers:
+      - name: demo-web-app
+        image: public.ecr.aws/l2s8i9x7/gai-hackathon/demo-web-app:latest
+        env:
+        - name: VERSION
+          value: 1.0.0
+        ports:
+        - containerPort: 8080
