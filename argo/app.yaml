@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-web-app
+spec:
+  destination:
+    name: 'demo-web-app'
+    namespace: carlos-namespace
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: k8s
+    repoURL: 'https://github.com/carlosaya/demo-web-app'
+    targetRevision: HEAD
+    directory:
+      recurse: true
+  project: carlos
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
