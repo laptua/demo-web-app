@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  # APP_ID e.g. demo-web-app-100 no dot i.e. demo-web-app-1.0.0 not allow in k8s naming standard
+  name: {{.APP_ID}}
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: previews
+  source:
+    # REPOS e.g. https://github.com/laptua/demo-web-app
+    repoURL: https://github.com/{{.REPOS}}/demo-web-app
+    # BRANCH = PR branch name
+    targetRevision: {{.BRANCH}} 
+    path: helm/demo-web-app
+    helm:
+       values: |
+          version: 1.0.0
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: pr-{{.APP_ID}}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
