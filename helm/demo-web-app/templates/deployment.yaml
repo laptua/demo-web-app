@@ -15,7 +15,7 @@ spec:
         app: demo-web-app-{{.Values.version}}
     spec:
       containers:
-      - name: demo-web-app-{{.Values.version}}
+      - name: demo-web-app-{{.Values.version|replace "." ""}}
         image: "{{ .Values.image -}}:{{- .Values.version | default "latest" }}"
         env:
         - name: VERSION
