@@ -16,6 +16,7 @@ spec:
     path: helm/demo-web-app
     helm:
        values: |
+          image: 495526829652.dkr.ecr.ap-southeast-2.amazonaws.com/gai-hackathon/demo-web-app
           version: {{.VERSION}}
   destination:
     server: https://kubernetes.default.svc
