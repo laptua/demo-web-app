@@ -2,7 +2,7 @@
 
 [[ "$1" != '' ]] && export APP_ID=$1  || export APP_ID=demo-web-app-100
 [[ "$2" != '' ]] && export BRANCH=$2  || export BRANCH=HEAD
-[[ "$3" != '' ]] && export REPOS=$3   || export REPOS=laputa
+[[ "$3" != '' ]] && export REPOS=$3   || export REPOS=carlosaya
 [[ "$4" != '' ]] && export VERSION=$4 || export VERSION='1.0.0'
 
 cat apps_template.yaml | \

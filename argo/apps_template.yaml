@@ -9,7 +9,7 @@ metadata:
 spec:
   project: previews
   source:
-    # REPOS e.g. https://github.com/laptua/demo-web-app
+    # REPOS e.g. https://github.com/carlosaya/demo-web-app
     repoURL: https://github.com/{{.REPOS}}/demo-web-app
     # BRANCH = PR branch name
     targetRevision: {{.BRANCH}} 
