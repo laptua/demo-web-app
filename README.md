@@ -1,2 +1,2 @@
 # demo-web-app
-  PR-TEST-6
+  PR-TEST-6.
