@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: demo-web-app-{{.Values.version}}
+  name: demo-web-app-{{.Values.version|replace "." "-"}}
 spec:
   selector:
-    app: demo-web-app-{{.Values.version}}
+    app: demo-web-app-{{.Values.version|replace "." "-"}}
   ports:
     - port: 80
       targetPort: 8080
